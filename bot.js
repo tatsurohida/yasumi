@@ -9,11 +9,13 @@ clientSecret: process.env.BOTKIT_SLACK_CLIENT_SECRET,
 scopes: ['commands']
 });
 
+console.log(controller);
+
 controller.setupWebserver(process.env.PORT, function(err, webserver) {
 controller.createWebhookEndpoints(controller.webserver);
 controller.createOauthEndpoints(controller.webserver, function(err, req, res) {
 if (err) {
-res.status(509).send('Error: ' + JSON.stringify(err));
+res.status(500).send('Error: ' + JSON.stringify(err));
 } else {
 res.send('Success');
 }
