@@ -1,7 +1,7 @@
 var botkit = require('botkit');
 
 var controller = botkit.slackbot({
-debug: false,
+debug: true,
 json_file_store: './simple_storage/'
 }).configureSlackApp({
 clientId: process.env.BOTKIT_SLACK_CLIENT_ID,
